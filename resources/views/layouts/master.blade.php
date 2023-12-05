@@ -81,7 +81,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
+                        <i class="fas fa-user"></i>
                         </a>
                     </li>
             </ul>
@@ -106,16 +106,7 @@
                 </div>
             </div>
 
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+
 
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -193,12 +184,40 @@
 
 
         <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+            <div class="bg-dark">
+                <div class="card-body bg-dark box-profile">
+                <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle" src="{{ asset('images/user.png') }}" alt="User profile picture">
+                </div>
 
-        <div class="p-3">
-            <h5>Title</h5>
-            <p>Sidebar content</p>
-        </div>
-        </aside>
+                <h3 class="profile-username text-center ellipsis">{{ userFullName() }}</h3>
+
+                <p class="text-muted text-center">#</p>
+
+                <ul class="list-group bg-dark mb-3">
+                    <li class="list-group-item">
+                    <a href="#" class="d-flex align-items-center "><i class="fa fa-lock pr-2"></i><b >Mot de passe</b> </a>
+                    </li>
+                    <li class="list-group-item">
+                    <a href="#" class="d-flex align-items-center"><i class="fa fa-user pr-2"></i><b >Mon profile</b> </a>
+                    </li>
+                </ul>
+
+                <a class="btn btn-primary btn-block" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    Déconnexion
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            </aside>
+
 
 
         <footer class="main-footer">
